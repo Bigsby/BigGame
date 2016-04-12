@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BigGame.Objects
 {
     public interface IBigGameService
     {
-        IEnumerable<Game> GetGames();
-        IEnumerable<Score> GetScores(int gameId);
-        IEnumerable<Score> GetScores();
+        IQueryable<Game> GetGames();
+        IQueryable<Score> GetScores(int gameId);
+        IQueryable<Score> GetScores();
         int GetRanking(int gameId);
         bool AddScore(Score score);
+
+        IEnumerable<IdentityProvider> GetProviders();
     }
 }
